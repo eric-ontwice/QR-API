@@ -30,7 +30,7 @@ exports.allQRCodes = function (request, response) {
  * @param request 
  * @param response 
  */
-var findQRCode = exports.getQRCode = function(request, response) {
+exports.getQRCode = function(request, response) {
     QRCode.find({_id: ObjectId(request.params.id)})
     .then( (qr_code) => {
         response.status(200).send(qr_code)
