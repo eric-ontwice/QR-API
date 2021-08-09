@@ -53,7 +53,7 @@ exports.redirectToURL = function(request, response) {
     console.log("request.params.id")
     console.log(request.params.id)
     
-    QRCode.find({_id: ObjectId("61045bf2a56a5f3acb9a76d9")})
+    QRCode.find({_id: ObjectId(request.params.id)})
     .then( (qr_code) => {
         console.log("qr_code.redirect_to")
         console.log(qr_code[0].redirect_to)
