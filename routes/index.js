@@ -11,7 +11,7 @@ router.use("/users", usersRoutes)
 router.use("/qrs", qrsRoutes)
 
 router.use("/", function(request, response) {
-    return response.send("Welcome to Adoptapet API")
+    return response.send("Welcome to Dynamic QR API")
 })
 
 module.exports = router
