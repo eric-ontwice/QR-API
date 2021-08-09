@@ -93,3 +93,25 @@ exports.createQR = function (request, response) {
         })
     })
 }
+
+/**
+ * Update a specific QR
+ * 
+ * @param request
+ * @return QR
+ */
+exports.updateQR = function (request, response) {
+    const id = request.params.id;
+    const body = request.body;
+    
+    QRCode.findOneAndUpdate({"_id": ObjectId(id)}, body)
+    .then(function (qr) {
+        response.status(200).send(qr);
+    })
+    .catch(function (error) {
+        response.status(400).send({
+            "message": error.message, 
+            "type": error.name
+        });
+    })
+}
